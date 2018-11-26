@@ -8,11 +8,13 @@ class GamesController < ApplicationController
 
   def score
     if !match?
-      @answer = "Sorry but #{@user_input} can't be built out of #{@hidden_field}"
+      @answer = "Sorry but #{@user_input}
+      can't be built out of #{@hidden_field}"
     elsif request_api?
       @answer = "Congratulations! #{@user_input} is a valid English word!"
     elsif !request_api?
-      @answer = "Sorry but #{@user_input} does not seem to be a valid English Word!"
+      @answer = "Sorry but #{@user_input} does not
+      seem to be a valid English Word!"
     end
   end
 
@@ -21,14 +23,14 @@ class GamesController < ApplicationController
   def match?
     @user_input = params[:user_game]
     @hidden_field = params[:letters]
-
-    # The word can't be built out of the original grid
     @array_user_input = @user_input.split('')
-    # Now we need to iterate over the user input and compare it to letters
-    @array_user_input.each do |letter|
-      @user_input_verification = @hidden_field.include?(letter)
+    included?
+  end
+
+  def included?
+    @array_user_input.all? do |letter|
+      @array_user_input.count(letter) <= @hidden_field.split.count(letter)
     end
-    @user_input_verification
   end
 
   def request_api?
@@ -41,4 +43,3 @@ class GamesController < ApplicationController
     validation
   end
 end
-
