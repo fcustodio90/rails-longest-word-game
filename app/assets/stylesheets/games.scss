@@ -1,0 +1,32 @@
+// Place all the styles related to the games controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 35px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+}
+
+.word-game {
+  display: inline-block;
+  width: 50px;
+  padding: 10px;
+  border-style: solid;
+  text-align: center;
+  background-color: #3896DA;
+  color: white;
+  font-weight: bold;
+}
